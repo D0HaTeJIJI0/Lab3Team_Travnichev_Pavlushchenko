@@ -11,6 +11,7 @@ struct array
 int n;
 array sequence[MAXN];
 
+void test(int*, int*);
 void QSort(int, int);
 inline void outputData(int &, int &, int &); 
 
@@ -28,6 +29,8 @@ int main()
 	int n1, n2, n3;
 	outputData(n1, n2, n3);
 	cout << "\nThe numbers, which give the most composition are:\t" << n1 << " " << n2 << " " << n3;
+	int* result;
+
 	return 0;
 }
 
