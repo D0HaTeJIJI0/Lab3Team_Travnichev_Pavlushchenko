@@ -1,7 +1,8 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
-
+const int MAXN = 100;
 struct array
 {
 	long val, pos;
@@ -12,9 +13,26 @@ array sequence[MAXN];
 void QSort(int, int); 
 inline void maxMult(array [], long, long &, long & ,long &);
 
-int main()
+void test()
 {
-	return 0;
+	int amount;
+	array seq[MAXN];
+	cin >> amount;
+	for (int i = 0; i < amount; i++)
+	{
+		cin >> seq[i].val;
+		seq[i].pos = i;
+	}
+	long res1, res2, res3;
+	cin >> res1 >> res2 >> res3;
+	long a1, a2, a3;
+	maxMult(seq, amount, a1, a2, a3);
+	if ((a1 == res1) && (a2 == res2) && (a3 == res3))
+	{
+		cout << "OK" << endl;
+	}
+	else cout << "Failed" << endl;
+	
 }
 
 void maxMult(array seq[], long amount, long & ind1, long & ind2, long & ind3)
@@ -56,5 +74,14 @@ void QSort(int left, int right)
 	while (l <= r);
 	if (l < right) QSort(l,right);
 	if (r > left) QSort(left,r);
+}
+void main()
+{
+	freopen("Input.txt", "r", stdin);
+	test();
+	test();
+	test();
+	test();
+	test();
 }
 
