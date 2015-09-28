@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+
 using namespace std;
 const int MAXN = 1000;
 
@@ -15,11 +16,12 @@ void test(int*, int*);
 void QSort(int, int);
 inline void outputData(int &, int &, int &); 
 
-int main()
+void test()
 {
-	cout << "Enter an amount of elements:\t";
+	//Enter an amount of elements:\t";
+	freopen("input.txt", "r", stdin);
 	cin >> n;
-	cout << "\nEnter a sequence:\t";
+	//cout << "\nEnter a sequence:\t";
 	for (int i = 0; i < n; i++) 
 	{
 		cin >> sequence[i].val;
@@ -28,10 +30,9 @@ int main()
 	QSort(0,n-1);
 	int n1, n2, n3;
 	outputData(n1, n2, n3);
-	cout << "\nThe numbers, which give the most composition are:\t" << n1 << " " << n2 << " " << n3;
-	int* result;
+	int k1, k2, k3;
+	cin >> k1 >> k2 >> k3;
 
-	return 0;
 }
 
 void outputData(int & n1, int & n2, int & n3)
@@ -71,4 +72,13 @@ void QSort(int left, int right)
 	while (l <= r);
 	if (l < right) QSort(l,right);
 	if (r > left) QSort(left,r);
+}
+int main()
+{
+
+	test();
+	test();
+	test();
+	test();
+	test();
 }
