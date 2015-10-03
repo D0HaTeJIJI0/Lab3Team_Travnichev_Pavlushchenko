@@ -3,35 +3,60 @@
 using namespace std;
 const int MAXN = 1000;
 
-int sequence[MAXN];
+struct array
+{
+	long val, pos;
+};
+
+int n;
+array sequence[MAXN];
 
 void QSort(int, int);
-inline long max(int a, int b)
-{
-	if (a > b) return a;
-	else return b;
-}
+inline void outputData(int &, int &, int &); 
 
 int main()
 {
 	cout << "Enter an amount of elements:\t";
-	int n;
 	cin >> n;
 	cout << "\nEnter a sequence:\t";
-	for (int i = 0; i < n; i++) cin >> sequence[i];
+	for (int i = 0; i < n; i++) 
+	{
+		cin >> sequence[i].val;
+		sequence[i].pos = i;	
+	}
 	QSort(0,n-1);
-	cout << "The maximum composition is:\t" << max(sequence[1]*sequence[2]*sequence[0],sequence[0]*sequence[n-2]*sequence[n-1]);
+	int n1, n2, n3;
+	outputData(n1, n2, n3);
+	cout << "\nThe numbers, which give the most composition are:\t" << n1 << " " << n2 << " " << n3;
 	return 0;
+}
+
+void outputData(int & n1, int & n2, int & n3)
+{
+	long composition1 = sequence[0].val*sequence[1].val*sequence[2].val;
+	long composition2 = sequence[0].val*sequence[n-1].val*sequence[n-2].val;
+	n1 = sequence[0].pos;
+	if (composition1 > composition2) 
+	{
+		n2 = sequence[1].pos;
+		n3 = sequence[2].pos;
+	}
+	else 
+	{
+		n2 = sequence[n-2].pos;
+		n3 = sequence[n-1].pos;
+	}
 }
 
 void QSort(int left, int right)
 {
-	int key = sequence[left+(rand() % (right-left))];
-	int buf,l = left,r = right;
+	int key = sequence[left+(rand() % (right-left))].val;
+	int l = left,r = right;
+	array buf;
 	do
 	{
-		while (sequence[l] > key) l++;
-		while (sequence[r] < key) r--;
+		while (sequence[l].val > key) l++;
+		while (sequence[r].val < key) r--;
 		if (l <= r)
 		{
 			buf = sequence[l];
