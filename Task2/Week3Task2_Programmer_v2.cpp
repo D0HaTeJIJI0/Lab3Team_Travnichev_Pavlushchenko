@@ -15,19 +15,6 @@ inline void maxMult(array [], long, long &, long & ,long &);
 
 int main()
 {
-	cout << "Enter an amount of elements:\t";
-	long n;
-	cin >> n;
-	cout << "\nEnter a sequence:\t";
-	array sequence[MAXN];
-	for (int i = 0; i < n; i++) 
-	{
-		cin >> sequence[i].val;
-		sequence[i].pos = i;	
-	}
-	long n1, n2, n3;
-	maxMult(sequence, n, n1, n2, n3);
-	cout << "\nThe numbers, which give the most composition are:\t" << n1 << " " << n2 << " " << n3;
 	return 0;
 }
 
