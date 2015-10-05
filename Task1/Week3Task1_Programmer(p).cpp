@@ -3,7 +3,13 @@
 using namespace std;
 
 long ** multMatrix(long ** arr1, long ** arr2, int len1, int wid1, int len2, int wid2, int & newLen, int & newWid);
+<<<<<<< HEAD
 void cleaning(long **, int, int);
+=======
+// Принимает 2 массива и их параметры соответственно, на выходе:
+// конечный массив, а также параметры выходного массива через
+// переменные newLen, newWid
+>>>>>>> origin/master
 
 int main()
 {
