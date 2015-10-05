@@ -1,7 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
-const int MAXN = 1000;
 
 struct array
 {
