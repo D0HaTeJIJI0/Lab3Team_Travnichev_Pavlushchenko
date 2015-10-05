@@ -8,43 +8,45 @@ struct array
 	long val, pos;
 };
 
-int n;
 array sequence[MAXN];
 
-void QSort(int, int);
-inline void outputData(int &, int &, int &); 
+void QSort(int, int); 
+inline void maxMult(array [], long, long &, long & ,long &);
 
 int main()
 {
 	cout << "Enter an amount of elements:\t";
+	long n;
 	cin >> n;
 	cout << "\nEnter a sequence:\t";
+	array sequence[MAXN];
 	for (int i = 0; i < n; i++) 
 	{
 		cin >> sequence[i].val;
 		sequence[i].pos = i;	
 	}
-	QSort(0,n-1);
-	int n1, n2, n3;
-	outputData(n1, n2, n3);
+	long n1, n2, n3;
+	maxMult(sequence, n, n1, n2, n3);
 	cout << "\nThe numbers, which give the most composition are:\t" << n1 << " " << n2 << " " << n3;
 	return 0;
 }
 
-void outputData(int & n1, int & n2, int & n3)
+void maxMult(array seq[], long amount, long & ind1, long & ind2, long & ind3)
 {
-	long composition1 = sequence[0].val*sequence[1].val*sequence[2].val;
-	long composition2 = sequence[0].val*sequence[n-1].val*sequence[n-2].val;
-	n1 = sequence[0].pos;
+    for (int i = 0; i < amount; i++) sequence[i] = seq[i];
+    QSort(0, amount-1);
+    long composition1 = sequence[0].val*sequence[1].val*sequence[2].val;
+	long composition2 = sequence[0].val*sequence[amount-1].val*sequence[amount-2].val;
+	ind1 = sequence[0].pos;
 	if (composition1 > composition2) 
 	{
-		n2 = sequence[1].pos;
-		n3 = sequence[2].pos;
+		ind2 = sequence[1].pos;
+		ind3 = sequence[2].pos;
 	}
 	else 
 	{
-		n2 = sequence[n-2].pos;
-		n3 = sequence[n-1].pos;
+		ind2 = sequence[amount-2].pos;
+		ind3 = sequence[amount-1].pos;
 	}
 }
 
